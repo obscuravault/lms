@@ -1,1 +1,0 @@
-<footer><p>&copy; <?php echo date('Y'); ?> Custom LMS. All rights reserved.</p></footer>
