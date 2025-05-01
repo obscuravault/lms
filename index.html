@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Countdown to 2025 A/L Examination</title>
+    <!-- Include jQuery and Moment.js libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background */
+        body {
+            background-color: #0d0d0d;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(145deg, #0b0b0b, #1a1a1a);
+            overflow: hidden;
+        }
+
+        .countdown-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 50px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-size: 50px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #00bcd4;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00bcd4, 0 0 30px #00bcd4;
+        }
+        h3 {
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #00FFFF;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00bcd4, 0 0 30px #00bcd4;
+        }
+
+        .countdown {
+            font-size: 70px; /* Increased font size for the numbers */
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .countdown div {
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 255, 255, 0.5);
+            font-size: 60px; /* Larger font size for countdown numbers */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown div .label {
+            font-size: 20px; /* Smaller font size for labels like Days, Hours */
+            color: #00bcd4;
+            margin-top: 5px;
+        }
+
+        .countdown span {
+            display: block;
+            font-size: 40px; /* Large font size for countdown numbers */
+            margin-top: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="countdown-container">
+        <h1>Countdown to 2025 A/L Exam</h1>
+        <br>
+        <div id="countdown" class="countdown">
+            <div>
+                <span id="months">00</span>
+                <div class="label">Months</div>
+            </div>
+            <div>
+                <span id="days">00</span>
+                <div class="label">Days</div>
+            </div>
+            <div>
+                <span id="hours">00</span>
+                <div class="label">Hours</div>
+            </div>
+            <div>
+                <span id="minutes">00</span>
+                <div class="label">Minutes</div>
+            </div>
+            <div>
+                <span id="seconds">00</span>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+        <br>
+        <h3> GET READY </h3>
+    </div>
+
+    <script>
+        // Set the target date
+        const targetDate = moment('2025-10-20 08:00:00', 'YYYY-MM-DD HH:mm:ss');
+
+        // Function to update the countdown
+        function updateCountdown() {
+            // Get the current date/time
+            const currentDate = moment();
+
+            // Calculate the difference between the target and current time
+            const duration = moment.duration(targetDate.diff(currentDate));
+
+            // Function to update each countdown number without animation
+            function updateValue(id, newValue) {
+                const element = $(`#${id}`);
+                const currentValue = element.text();
+                if (currentValue !== newValue) {
+                    // Simply update the value without animation
+                    element.text(newValue);
+                }
+            }
+
+            // Update the countdown elements
+            updateValue('months', duration.months());
+            updateValue('days', duration.days());
+            updateValue('hours', duration.hours());
+            updateValue('minutes', duration.minutes());
+            updateValue('seconds', duration.seconds());
+        }
+
+        // Initial update
+        updateCountdown();
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+
+</html>
