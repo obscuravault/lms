@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Video Player</title>
+    <link rel="stylesheet" href="style.css"> <!-- Linking the CSS file -->
+</head>
+
+<body oncontextmenu="return false;">
+
+    <!-- 🔐 Password Prompt -->
+    <div id="passwordPrompt">
+        <h2>Enter Access Password</h2>
+        <input type="password" id="password" placeholder="Enter password" />
+        <br>
+        <button onclick="verifyPassword()">Unlock</button>
+        <h3>කරුණාකර කිසිම හේතුවකට Full Screen වලින් ඉවත් නොවන්න<br><br> වෙන කා‍ර්යයයක් සිදු කරන ගමන් මෙම වීඩියෝව නැරඹීමට පැමිණියේ නම් ඔබ එම කාර්යය අවසන් කර මෙය නරඹන්න<br><br> ඔබට ලබා දී ඇති එකම Password එක මේ සතියට අදාල වීඩියෝව ලබා ගැනීමේ එකම සහ අවසාන අවස්ථාව වන අතර නැවත ඉල්ලීම් සිදු කළ නොහැක. <br> <br>මෙය ආරක්ෂන හේතූන් මත කිසිම හේතුවකට වීඩියෝවක් පිටට යාම වලක්වාලීම සඳහා සිදු කරන ලදී. </h3>
+    </div>
+
+    <!-- 📺 Video Container -->
+    <div id="videoContainer">
+        <div id="watermark">OBSCURA VAULT™</div>
+        <video id="secureVideo" playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" onended="exitHandler()">
+            <!-- The video will be added dynamically via JS -->
+        </video>
+
+        <!-- 🎮 Custom Controls -->
+        <div id="controls">
+            <button id="playPause">Play</button>
+            <div id="progressBar"><div id="progressFill"></div></div>
+            <div id="currentTime">0:00</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Linking the JS file -->
+
+</body>
+</html>
